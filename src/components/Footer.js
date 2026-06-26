@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container footer-inner">
         <div className="footer-logo">
           <div className="footer-avatar">
-            <img src="/avatar.jpg" alt="Yuhsuan" onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
+            <img src={`${process.env.PUBLIC_URL}/avatar.jpg`} alt="Yuhsuan" onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
             <span className="footer-avatar-fallback">YH</span>
           </div>
           <span>Yuhsuan</span>

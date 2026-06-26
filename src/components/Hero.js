@@ -5,9 +5,10 @@ import { FaLinkedin } from 'react-icons/fa';
 import './Hero.css';
 
 const photos = [
-  { src: '/photos/animal1.jpg', alt: 'Me with animals' },
-  { src: '/photos/animal2.jpg', alt: 'Me with animals' },
-  { src: '/photos/animal3.jpg', alt: 'Me with animals' },
+  { src: `${process.env.PUBLIC_URL}/photos/animal1.jpg`, alt: 'Me with animals' },
+  { src: `${process.env.PUBLIC_URL}/photos/animal2.jpg`, alt: 'Me with animals' },
+  { src: `${process.env.PUBLIC_URL}/photos/animal3.jpg`, alt: 'Me with animals' },
+  { src: `${process.env.PUBLIC_URL}/photos/animal4.jpg`, alt: 'Me with animals' },
 ];
 
 function VerticalScroll() {
