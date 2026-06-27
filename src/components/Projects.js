@@ -39,11 +39,6 @@ const readySetHireProject = {
   period: 'Sep 2025',
 };
 
-const formBaseMedia = [
-  { type: 'image', src: `${process.env.PUBLIC_URL}/photos/formbase1.jpg` },
-  { type: 'video', src: `${process.env.PUBLIC_URL}/videos/formbase.mp4` },
-];
-
 const formBaseProject = {
   title: 'FormBase',
   desc: 'Mobile app for creating custom forms with dynamic fields including text, dropdown, image/camera capture, and GPS location with map visualisation of location-based records.',

@@ -312,4 +312,18 @@
   .projects-grid {
     grid-template-columns: 1fr;
   }
+
+  .phone-mockup-side {
+    padding: 16px;
+  }
+
+  .phone-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .phone-mockup {
+    width: 100%;
+    max-width: 140px;
+  }
 }
