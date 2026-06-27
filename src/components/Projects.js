@@ -39,26 +39,84 @@ const readySetHireProject = {
   period: 'Sep 2025',
 };
 
-const projects = [
-  {
-    title: 'FormBase',
-    desc: 'Mobile app for creating custom forms with dynamic fields — text, dropdown, image/camera capture, and GPS location — with map visualisation of location-based records.',
-    tags: ['React Native', 'Expo', 'TypeScript'],
-    period: 'Oct 2025',
-  },
-  {
-    title: 'Batch Course Conversion Tool',
-    desc: 'A CLI tool that batch-converts OpenEdx OLX courses to LiaScript Markdown, parsing nested XML and handling HTML, video, and quiz content types.',
-    tags: ['Node.js', 'JavaScript', 'Jest'],
-    period: 'Aug 2025',
-  },
-  {
-    title: 'TableTap — QR Ordering System',
-    desc: 'A SaaS platform for restaurants where customers scan a QR code to browse the menu and order from their seat. Supports multi-restaurant management with separate admin and customer interfaces.',
-    tags: ['Python', 'Django', 'Bootstrap 5'],
-    period: 'May 2025',
-  },
+const formBaseMedia = [
+  { type: 'image', src: `${process.env.PUBLIC_URL}/photos/formbase1.jpg` },
+  { type: 'video', src: `${process.env.PUBLIC_URL}/videos/formbase.mp4` },
 ];
+
+const formBaseProject = {
+  title: 'FormBase',
+  desc: 'Mobile app for creating custom forms with dynamic fields including text, dropdown, image/camera capture, and GPS location with map visualisation of location-based records.',
+  highlight: 'This was my first mobile app, and it taught me that mobile development requires a lot more attention to detail than I expected. Things like making sure the keyboard does not cover the input field, or whether the layout is easy to read on a small screen are details that matter a lot more on mobile, where the experience feels much more personal and immediate.',
+  tags: ['React Native', 'Expo', 'TypeScript'],
+  period: 'Oct 2025',
+};
+
+const batchMedia = [
+  { type: 'image', src: `${process.env.PUBLIC_URL}/photos/batch1.jpeg` },
+  { type: 'image', src: `${process.env.PUBLIC_URL}/photos/batch2.jpeg` },
+];
+
+const batchProject = {
+  title: 'Batch Course Conversion Tool',
+  desc: 'A CLI tool that batch-converts OpenEdx OLX courses to LiaScript Markdown, parsing nested XML and handling HTML, video, and quiz content types.',
+  highlight: 'One of the requirements for this project was to write Jest test cases to verify the conversion accuracy. Looking back, it is interesting to compare this to the Java unit tests I wrote in other courses. Jest feels a lot more lightweight and straightforward to set up, while JUnit in Java requires more structure. Both taught me that writing tests forces you to think more carefully about what your code is actually supposed to do.',
+  tags: ['Node.js', 'JavaScript', 'Jest'],
+  period: 'Aug 2025',
+};
+
+const tableTapMedia = [
+  { type: 'image', src: `${process.env.PUBLIC_URL}/photos/table1.jpeg` },
+  { type: 'image', src: `${process.env.PUBLIC_URL}/photos/table2.jpeg` },
+  { type: 'image', src: `${process.env.PUBLIC_URL}/photos/table3.jpeg` },
+  { type: 'image', src: `${process.env.PUBLIC_URL}/photos/table4.jpeg` },
+];
+
+const tableTapProject = {
+  title: 'TableTap — QR Ordering System',
+  desc: 'A SaaS platform for restaurants where customers scan a QR code to browse the menu and order from their seat. Supports multi-restaurant management with separate admin and customer interfaces.',
+  highlight: 'This was my first time designing a database from scratch, and it was more challenging than I expected. Getting the relationships between tables right, deciding on primary keys, and making sure everything connected properly took a lot more thought than I initially anticipated. It gave me a much deeper appreciation for how important good database design is before you even start writing any code.',
+  tags: ['Python', 'Django', 'Bootstrap 5'],
+  period: 'May 2025',
+};
+
+const projects = [];
+
+const formbaseScreenshots = [
+  `${process.env.PUBLIC_URL}/photos/formbase1.jpg`,
+  `${process.env.PUBLIC_URL}/photos/formbase2.jpg`,
+  `${process.env.PUBLIC_URL}/photos/formbase3.jpg`,
+  `${process.env.PUBLIC_URL}/photos/formbase4.jpg`,
+];
+
+function PhoneMockupGrid({ screenshots }) {
+  const [page, setPage] = useState(0);
+  const pages = [screenshots.slice(0, 2), screenshots.slice(2, 4)];
+  const current = pages[page];
+
+  return (
+    <div className="phone-mockup-wrapper">
+      <div className="phone-grid">
+        {current.map((src, i) => (
+          <div className="phone-mockup" key={i}>
+            <div className="phone-notch" />
+            <div className="phone-screen">
+              <img src={src} alt={`Screenshot ${page * 2 + i + 1}`} />
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="phone-pagination">
+        <button className="slide-btn-small" onClick={() => setPage(0)} disabled={page === 0}>
+          <FiChevronLeft size={18} />
+        </button>
+        <button className="slide-btn-small" onClick={() => setPage(1)} disabled={page === 1}>
+          <FiChevronRight size={18} />
+        </button>
+      </div>
+    </div>
+  );
+}
 
 function Slideshow({ media }) {
   const [index, setIndex] = useState(0);
@@ -184,6 +242,60 @@ export default function Projects() {
                 <span className="tag" key={tag}>{tag}</span>
               ))}
             </div>
+          </div>
+        </div>
+
+        {/* FormBase — text left, media right */}
+        <div className="project-card-video">
+          <div className="project-video-info">
+            <span className="project-period">{formBaseProject.period}</span>
+            <h3 className="project-title-featured">{formBaseProject.title}</h3>
+            <p className="project-desc-featured">{formBaseProject.desc}</p>
+            {formBaseProject.highlight && <p className="project-highlight">{formBaseProject.highlight}</p>}
+            <div className="project-tags">
+              {formBaseProject.tags.map((tag) => (
+                <span className="tag" key={tag}>{tag}</span>
+              ))}
+            </div>
+          </div>
+          <div className="project-video-side phone-mockup-side">
+            <PhoneMockupGrid screenshots={formbaseScreenshots} />
+          </div>
+        </div>
+
+        {/* Batch Course Conversion Tool — media left, text right */}
+        <div className="project-card-video">
+          <div className="project-video-side">
+            <Slideshow media={batchMedia} />
+          </div>
+          <div className="project-video-info">
+            <span className="project-period">{batchProject.period}</span>
+            <h3 className="project-title-featured">{batchProject.title}</h3>
+            <p className="project-desc-featured">{batchProject.desc}</p>
+            {batchProject.highlight && <p className="project-highlight">{batchProject.highlight}</p>}
+            <div className="project-tags">
+              {batchProject.tags.map((tag) => (
+                <span className="tag" key={tag}>{tag}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* TableTap — media left, text right */}
+        <div className="project-card-video">
+          <div className="project-video-info">
+            <span className="project-period">{tableTapProject.period}</span>
+            <h3 className="project-title-featured">{tableTapProject.title}</h3>
+            <p className="project-desc-featured">{tableTapProject.desc}</p>
+            {tableTapProject.highlight && <p className="project-highlight">{tableTapProject.highlight}</p>}
+            <div className="project-tags">
+              {tableTapProject.tags.map((tag) => (
+                <span className="tag" key={tag}>{tag}</span>
+              ))}
+            </div>
+          </div>
+          <div className="project-video-side">
+            <Slideshow media={tableTapMedia} />
           </div>
         </div>
 

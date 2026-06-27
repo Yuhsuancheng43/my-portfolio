@@ -23,6 +23,10 @@
   padding: 0 24px;
 }
 
+.navbar-inner-centered {
+  justify-content: center;
+}
+
 .navbar-logo {
   display: flex;
   align-items: center;
