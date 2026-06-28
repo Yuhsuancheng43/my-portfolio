@@ -15,10 +15,10 @@ export default function Navbar() {
       <div className="navbar-inner container navbar-inner-centered">
         <a className="navbar-logo" href="#hero" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
           <div className="navbar-avatar">
-            <img src={`${process.env.PUBLIC_URL}/avatar.jpg`} alt="Yuhsuan" onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
+            <img src={`${process.env.PUBLIC_URL}/avatar.jpg`} alt="Tanya" onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
             <span className="avatar-fallback">YH</span>
           </div>
-          <span className="navbar-name">Yuhsuan · Portfolio</span>
+          <span className="navbar-name">Tanya · Portfolio</span>
         </a>
       </div>
     </nav>

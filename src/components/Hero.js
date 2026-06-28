@@ -42,7 +42,7 @@ export default function Hero() {
       <div className="container hero-inner">
         <div className="hero-left">
           <h1 className="hero-name">
-            Hello! I'm Yuhsuan <PiHandWaving className="hero-wave" size={40} />
+            Hello! I'm Tanya <PiHandWaving className="hero-wave" size={40} />
           </h1>
 
           <div className="hero-intro-card">
