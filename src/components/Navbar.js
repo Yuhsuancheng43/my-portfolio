@@ -18,7 +18,7 @@ export default function Navbar() {
             <img src={`${process.env.PUBLIC_URL}/avatar.jpg`} alt="Tanya" onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
             <span className="avatar-fallback">YH</span>
           </div>
-          <span className="navbar-name">Tanya · Portfolio</span>
+          <span className="navbar-name">Yuhsuan · Portfolio</span>
         </a>
       </div>
     </nav>
